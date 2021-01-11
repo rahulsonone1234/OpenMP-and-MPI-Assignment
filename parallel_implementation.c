@@ -63,3 +63,6 @@ int main()
 	
     return 0;
 }
+
+//gcc parallel_implementation.c -fopenmp
+//./a.out
