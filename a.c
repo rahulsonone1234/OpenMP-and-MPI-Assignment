@@ -1,58 +1,61 @@
-#include<bits/stdc++.h>
-using namespace std;
+#include<stdio.h>
+#include<omp.h>
+
 
 int main()
 {
     int n,m;
-    cin>>n>>m;
+    scanf("%d %d",&n,&m);
     int a[n][m];
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<m;j++)
         {
-            cin>>a[i][j];
+            scanf("%d",&a[i][j]);
         }
     }
     int s=44;
     int s1=s/10;
     int s2=s%10;
 
-    //cout<<s1<<" "<<s2<<endl;
-    int cnt=0;
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<m;j++)
-        {
-            if(a[i][j]==s1)
-            {
-                if(a[i][j+1]==s2)
-                {
-                    cnt++;
-                    a[i][j]=0;
-                    a[i][j+1]=0;
-                }
-                if(a[i+1][j+1]==s2)
-                {
-                    cnt++;
-                    a[i][j]=0;
-                    a[i+1][j+1]=0;
-                }
-                if(a[i+1][j]==s2)
-                {
-                    cnt++;
-                    a[i][j]=0;
-                    a[i+1][j]=0;
-                }
-                if(a[i-1][j+1]==s2)
-                {
-                    cnt++;
-                    a[i][j]=0;
-                    a[i-1][j+1]=0;
-                }
-            }
-        }
-    }
-    cout<<cnt<<endl;
+    int i, j, thread_id, cnt;
+	cnt=0; 
+	    for(i=0;i<n;i++)
+	    {
+		for(j=0;j<m;j++)
+		{
+		    if(a[i][j]==s1)
+		    {
+		        if(a[i][j+1]==s2)
+		        {
+		            cnt++;
+		            a[i][j]=0;
+		            a[i][j+1]=0;
+		        }
+		        if(a[i+1][j+1]==s2)
+		        {
+		            cnt++;
+		            a[i][j]=0;
+		            a[i+1][j+1]=0;
+		        }
+		        if(a[i+1][j]==s2)
+		        {
+		            cnt++;
+		            a[i][j]=0;
+		            a[i+1][j]=0;
+		        }
+		        if(a[i-1][j+1]==s2)
+		        {
+		            cnt++;
+		            a[i][j]=0;
+		            a[i-1][j+1]=0;
+		        }
+		    }
+		}
+	    }
+
+
+    printf("%d ", cnt);
     return 0;
 }
 /*
