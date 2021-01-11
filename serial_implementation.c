@@ -74,3 +74,5 @@ int main()
 9 7 2 0 7 2 1 9 6 4 5 5 7 1 8
 3 7 1 4 8 7 6 8 4 9 0 6 2 0 7
 */
+//to compile use =>    gcc serial_implementaion.c
+//to run use  =>    ./a.out
